@@ -1,39 +1,42 @@
 %define		_realname	thunar-volman
 Summary:	Volumes manager for Thunar
-Summary(pl.UTF-8):	Menad¿er napêdów dla Thunara
+Summary(pl.UTF-8):	ZarzÄ…dca napÄ™dÃ³w dla Thunara
 Name:		Thunar-volman
 Version:	0.1.2
-Release:	0.1
+Release:	1
 License:	GPL
-Group:		Applications
+Group:		X11/Applications
 Source0:	http://download.berlios.de/xfce-goodies/%{_realname}-%{version}.tar.bz2
 # Source0-md5:	910de35c398f70b66b38803bdfdd26f1
 URL:		http://foo-projects.org/~benny/projects/thunar-volman/
-BuildRequires:	Thunar-devel
+BuildRequires:	Thunar-devel >= 0.5.1
 BuildRequires:	dbus-glib-devel >= 0.34
-BuildRequires:	gtk+2-devel >= 2.6
+BuildRequires:	gtk+2-devel >= 2:2.6.0
 BuildRequires:	hal-devel >= 0.5.0
-BuildRequires:	libexo >= 0.3.1.13
+BuildRequires:	libexo-devel >= 0.3.1.13
 BuildRequires:	libtool
+BuildRequires:	rpmbuild(macros) >= 1.311
+Requires(post,postun):	gtk+2
+Requires(post,postun):	hicolor-icon-theme
 Requires:	Thunar
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 The Thunar Volume Manager is an extension for the Thunar file manager,
 which enables automatic management of removable drives and media. For
-example, if thunar-volman is installed and configured properly, and
+example, if Thunar-volman is installed and configured properly, and
 you plug in your digital camera, it will automatically launch your
 preferred photo application and import the new pictures from the
 camera into your photo collection.
 
 %description -l pl.UTF-8
-Thunar Volume Manager jest rozszerzeniem menad¿era plików Thunar,
-które pozwala na automatyczne zarz±dzanie przeno¶nych dysków i mediów.
-Dla przyk³adu, je¿eli thunar-volman jest zainstalowany i
-skonfigurowany poprawnie i gydy pod³±czasz twój aparat cyfrowy,
-thunar-volman automatycznie uruchomi preferowan± przez ciebie
-aplikacjê i zaimportuje nowe zdjêcia z aparatu do twojej kolekcji
-zdjêc.
+Thunar Volume Manager jest rozszerzeniem zarzÄ…dcy plikÃ³w Thunar,
+ktÃ³re pozwala na automatyczne zarzÄ…dzanie przenoÅ›nych dyskÃ³w i mediÃ³w.
+Dla przykÅ‚adu, jeÅ¼eli Thunar-volman jest zainstalowany i
+skonfigurowany poprawnie i gdy podÅ‚Ä…czasz swÃ³j aparat cyfrowy,
+Thunar-volman automatycznie uruchomi preferowanÄ… przez ciebie
+aplikacjÄ™ i zaimportuje nowe zdjÄ™cia z aparatu do twojej kolekcji
+zdjÄ™Ä‡.
 
 %prep
 %setup -q -n %{_realname}-%{version}
@@ -54,8 +57,14 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post
+%update_icon_cache hicolor
+
+%postun
+%update_icon_cache hicolor
+
 %files -f %{_realname}
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README THANKS
 %attr(755,root,root) %{_bindir}/thunar-volman
-%{_iconsdir}/*
+%{_iconsdir}/hicolor/*/apps/*
