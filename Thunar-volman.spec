@@ -16,6 +16,8 @@ BuildRequires:	hal-devel >= 0.5.0
 BuildRequires:	libexo-devel >= 0.3.1.13
 BuildRequires:	libtool
 BuildRequires:	rpmbuild(macros) >= 1.311
+BuildRequires:	startup-notification-devel
+BuildRequires:	w3c-libwww-devel
 Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
 Requires:	Thunar
