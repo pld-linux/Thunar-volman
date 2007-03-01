@@ -34,11 +34,10 @@ camera into your photo collection.
 %description -l pl.UTF-8
 Thunar Volume Manager jest rozszerzeniem zarządcy plików Thunar,
 które pozwala na automatyczne zarządzanie przenośnych dysków i mediów.
-Dla przykładu, jeżeli Thunar-volman jest zainstalowany i
-skonfigurowany poprawnie i gdy podłączasz swój aparat cyfrowy,
-Thunar-volman automatycznie uruchomi preferowaną przez ciebie
-aplikację i zaimportuje nowe zdjęcia z aparatu do twojej kolekcji
-zdjęć.
+Na przykład, jeżeli Thunar-volman jest zainstalowany i skonfigurowany
+poprawnie, przy podłączaniu aparatu cyfrowego automatycznie uruchomi
+preferowaną aplikację i zaimportuje nowe zdjęcia z aparatu do kolekcji
+zdjęć użytkownika.
 
 %prep
 %setup -q -n %{_realname}-%{version}
