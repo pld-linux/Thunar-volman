@@ -2,18 +2,19 @@
 Summary:	Volumes manager for Thunar
 Summary(pl.UTF-8):	Zarządca napędów dla Thunara
 Name:		Thunar-volman
-Version:	0.1.2
-Release:	2
+Version:	0.2.0
+Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://download.berlios.de/xfce-goodies/%{_realname}-%{version}.tar.bz2
-# Source0-md5:	910de35c398f70b66b38803bdfdd26f1
+# Source0-md5:	e4587967fe3b3858d93735fee3edb2fc
+Patch0:		%{name}-locale-names.patch
 URL:		http://foo-projects.org/~benny/projects/thunar-volman/
-BuildRequires:	Thunar-devel >= 0.5.1
+BuildRequires:	Thunar-devel >= 0.9.0
 BuildRequires:	dbus-glib-devel >= 0.34
 BuildRequires:	gtk+2-devel >= 2:2.6.0
 BuildRequires:	hal-devel >= 0.5.0
-BuildRequires:	libexo-devel >= 0.3.1.13
+BuildRequires:	libexo-devel >= 0.3.4
 BuildRequires:	libtool
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	startup-notification-devel
@@ -41,6 +42,9 @@ zdjęć użytkownika.
 
 %prep
 %setup -q -n %{_realname}-%{version}
+%patch0 -p1
+
+mv -f po/{nb_NO,nb}.po
 
 %build
 %configure
@@ -68,4 +72,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README THANKS
 %attr(755,root,root) %{_bindir}/thunar-volman
+%attr(755,root,root) %{_libdir}/thunar-volman-settings
+%{_desktopdir}/thunar-volman-settings.desktop
 %{_iconsdir}/hicolor/*/apps/*
