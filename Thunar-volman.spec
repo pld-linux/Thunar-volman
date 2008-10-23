@@ -3,14 +3,16 @@ Summary:	Volumes manager for Thunar
 Summary(pl.UTF-8):	Zarządca napędów dla Thunara
 Name:		Thunar-volman
 Version:	0.2.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://download.berlios.de/xfce-goodies/%{_realname}-%{version}.tar.bz2
 # Source0-md5:	e4587967fe3b3858d93735fee3edb2fc
 Patch0:		%{name}-locale-names.patch
+Patch1:		%{name}-setup-crypto.patch
 URL:		http://foo-projects.org/~benny/projects/thunar-volman/
-BuildRequires:	Thunar-devel >= 0.9.0
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.34
 BuildRequires:	gtk+2-devel >= 2:2.6.0
 BuildRequires:	hal-devel >= 0.5.0
@@ -18,7 +20,9 @@ BuildRequires:	libexo-devel >= 0.3.4
 BuildRequires:	libtool
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	startup-notification-devel
+BuildRequires:	Thunar-devel >= 0.9.0
 BuildRequires:	w3c-libwww-devel
+BuildRequires:	xfce4-dev-tools
 Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
 Requires:	Thunar
@@ -43,10 +47,15 @@ zdjęć użytkownika.
 %prep
 %setup -q -n %{_realname}-%{version}
 %patch0 -p1
+%patch1 -p0
 
 mv -f po/{nb_NO,nb}.po
 
 %build
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
+%{__automake}
 %configure
 
 %{__make}
