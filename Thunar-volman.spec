@@ -2,30 +2,27 @@
 Summary:	Volumes manager for Thunar
 Summary(pl.UTF-8):	Zarządca napędów dla Thunara
 Name:		Thunar-volman
-Version:	0.2.0
-Release:	2
-License:	GPL
+Version:	0.3.80
+Release:	1
+License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://download.berlios.de/xfce-goodies/%{_realname}-%{version}.tar.bz2
-# Source0-md5:	e4587967fe3b3858d93735fee3edb2fc
-Patch0:		%{name}-locale-names.patch
-Patch1:		%{name}-setup-crypto.patch
-URL:		http://foo-projects.org/~benny/projects/thunar-volman/
-BuildRequires:	autoconf
-BuildRequires:	automake
+Source0:	http://goodies.xfce.org/releases/thunar-volman/%{_realname}-%{version}.tar.bz2
+# Source0-md5:	4fd81b62690797317ca649ab20609dae
+URL:		http://goodies.xfce.org/projects/thunar-plugins/thunar-volman
+BuildRequires:	autoconf >= 2.50
+BuildRequires:	automake >= 1:1.8
 BuildRequires:	dbus-glib-devel >= 0.34
-BuildRequires:	gtk+2-devel >= 2:2.6.0
+BuildRequires:	gtk+2-devel >= 2:2.10.6
 BuildRequires:	hal-devel >= 0.5.0
-BuildRequires:	libexo-devel >= 0.3.4
+BuildRequires:	exo-devel >= 0.3.100
+BuildRequires:	intltool
 BuildRequires:	libtool
 BuildRequires:	rpmbuild(macros) >= 1.311
-BuildRequires:	startup-notification-devel
-BuildRequires:	Thunar-devel >= 0.9.0
-BuildRequires:	w3c-libwww-devel
-BuildRequires:	xfce4-dev-tools
+BuildRequires:	Thunar-devel >= 1.0.0
+BuildRequires:	xfce4-dev-tools >= 4.6.0
 Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
-Requires:	Thunar
+Requires:	Thunar >= 1.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -46,18 +43,15 @@ zdjęć użytkownika.
 
 %prep
 %setup -q -n %{_realname}-%{version}
-%patch0 -p1
-%patch1 -p0
-
-mv -f po/{nb_NO,nb}.po
 
 %build
+%{__intltoolize}
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure
-
 %{__make}
 
 %install
@@ -65,6 +59,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+mv $RPM_BUILD_ROOT%{_datadir}/locale/nb{_NO,}
 
 %find_lang %{_realname}
 
