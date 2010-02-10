@@ -1,9 +1,9 @@
 %define		_realname	thunar-volman
 Summary:	Volumes manager for Thunar
-Summary(pl):	Zarz±dca napêdów dla Thunara
+Summary(pl.UTF-8):	ZarzÄ…dca napÄ™dÃ³w dla Thunara
 Name:		Thunar-volman
 Version:	0.1.2
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://download.berlios.de/xfce-goodies/%{_realname}-%{version}.tar.bz2
@@ -32,12 +32,12 @@ preferred photo application and import the new pictures from the
 camera into your photo collection.
 
 %description -l pl.UTF-8
-Thunar Volume Manager jest rozszerzeniem zarz±dcy plików Thunar,
-które pozwala na automatyczne zarz±dzanie przeno¶nych dysków i mediów.
-Na przyk³ad, je¿eli Thunar-volman jest zainstalowany i skonfigurowany
-poprawnie, przy pod³±czaniu aparatu cyfrowego automatycznie uruchomi
-preferowan± aplikacjê i zaimportuje nowe zdjêcia z aparatu do kolekcji
-zdjêæ u¿ytkownika.
+Thunar Volume Manager jest rozszerzeniem zarzÄ…dcy plikÃ³w Thunar,
+ktÃ³re pozwala na automatyczne zarzÄ…dzanie przenoÅ›nych dyskÃ³w i mediÃ³w.
+Na przykÅ‚ad, jeÅ¼eli Thunar-volman jest zainstalowany i skonfigurowany
+poprawnie, przy podÅ‚Ä…czaniu aparatu cyfrowego automatycznie uruchomi
+preferowanÄ… aplikacjÄ™ i zaimportuje nowe zdjÄ™cia z aparatu do kolekcji
+zdjÄ™Ä‡ uÅ¼ytkownika.
 
 %prep
 %setup -q -n %{_realname}-%{version}
