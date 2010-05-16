@@ -10,16 +10,18 @@ Source0:	http://goodies.xfce.org/releases/thunar-volman/%{_realname}-%{version}.
 # Source0-md5:	4fd81b62690797317ca649ab20609dae
 Patch0:		%{name}-desktop.patch
 URL:		http://goodies.xfce.org/projects/thunar-plugins/thunar-volman
+BuildRequires:	Thunar-devel >= 1.0.0
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.8
 BuildRequires:	dbus-glib-devel >= 0.34
+BuildRequires:	exo-devel >= 0.3.100
+BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 2:2.10.6
 BuildRequires:	hal-devel >= 0.5.0
-BuildRequires:	exo-devel >= 0.3.100
 BuildRequires:	intltool
 BuildRequires:	libtool
+BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
-BuildRequires:	Thunar-devel >= 1.0.0
 BuildRequires:	xfce4-dev-tools >= 4.6.0
 Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
@@ -35,9 +37,9 @@ preferred photo application and import the new pictures from the
 camera into your photo collection.
 
 %description -l pl.UTF-8
-Thunar Volume Manager jest rozszerzeniem zarządcy plików Thunar,
-które pozwala na automatyczne zarządzanie przenośnych dysków i mediów.
-Na przykład, jeżeli Thunar-volman jest zainstalowany i skonfigurowany
+Thunar Volume Manager jest rozszerzeniem zarządcy plików Thunar, które
+pozwala na automatyczne zarządzanie przenośnych dysków i mediów. Na
+przykład, jeżeli Thunar-volman jest zainstalowany i skonfigurowany
 poprawnie, przy podłączaniu aparatu cyfrowego automatycznie uruchomi
 preferowaną aplikację i zaimportuje nowe zdjęcia z aparatu do kolekcji
 zdjęć użytkownika.
