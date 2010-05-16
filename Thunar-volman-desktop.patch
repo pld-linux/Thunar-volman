@@ -1,9 +1,0 @@
---- thunar-volman-0.3.80/thunar-volman-settings.desktop.in.in~	2008-08-21 13:23:31.000000000 +0200
-+++ thunar-volman-0.3.80/thunar-volman-settings.desktop.in.in	2010-05-11 13:05:20.741823556 +0200
-@@ -9,5 +9,6 @@
- StartupNotify=true
- Type=Application
- Categories=X-XFCE;Settings;DesktopSettings;
-+OnlyShowIn=XFCE;
- 
- # vi:set encoding=UTF-8:
