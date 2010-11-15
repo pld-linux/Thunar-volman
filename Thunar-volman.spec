@@ -15,7 +15,8 @@ BuildRequires:	dbus-glib-devel >= 0.34
 BuildRequires:	exo-devel >= 0.5.0
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 1:2.18.0
-BuildRequires:	gtk+2-devel >= 2:2.24.0
+BuildRequires:	gtk+2-devel >= 2:2.22.0
+BuildRequires:	libnotify-devel
 BuildRequires:	libxfce4ui-devel >= 4.7.0
 BuildRequires:	libxfce4util-devel >= 4.7.0
 BuildRequires:	pkgconfig
@@ -58,7 +59,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-mv $RPM_BUILD_ROOT%{_datadir}/locale/nb{_NO,}
+rm -r $RPM_BUILD_ROOT%{_datadir}/locale/ur_PK
 
 %find_lang %{_realname}
 
@@ -75,6 +76,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README THANKS
 %attr(755,root,root) %{_bindir}/thunar-volman
-%attr(755,root,root) %{_libdir}/thunar-volman-settings
+%attr(755,root,root) %{_bindir}/thunar-volman-settings
 %{_desktopdir}/thunar-volman-settings.desktop
 %{_iconsdir}/hicolor/*/apps/*
