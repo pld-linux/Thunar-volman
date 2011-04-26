@@ -3,7 +3,7 @@ Summary:	Volumes manager for Thunar
 Summary(pl.UTF-8):	Zarządca napędów dla Thunara
 Name:		Thunar-volman
 Version:	0.6.0
-Release:	2
+Release:	3
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://archive.xfce.org/src/apps/thunar-volman/0.6/%{_realname}-%{version}.tar.bz2
@@ -25,6 +25,7 @@ BuildRequires:	udev-glib-devel >= 145
 BuildRequires:	xfce4-dev-tools >= 4.8.0
 BuildRequires:	xfconf-devel >= 4.8.0
 Requires:	gtk-update-icon-cache
+Requires:	gvfs
 Requires:	hicolor-icon-theme
 Requires:	Thunar >= 1.2.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
