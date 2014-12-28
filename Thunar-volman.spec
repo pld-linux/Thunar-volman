@@ -13,7 +13,7 @@ URL:		http://goodies.xfce.org/projects/thunar-plugins/thunar-volman
 BuildRequires:	Thunar-devel >= 1.4.0
 BuildRequires:	dbus-glib-devel >= 0.34
 BuildRequires:	exo-devel >= 0.8.0
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 1:2.18.0
 BuildRequires:	gtk+2-devel >= 2:2.22.0
 BuildRequires:	libnotify-devel >= 0.4.0
