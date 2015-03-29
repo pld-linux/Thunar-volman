@@ -2,32 +2,32 @@
 Summary:	Volumes manager for Thunar
 Summary(pl.UTF-8):	Zarządca napędów dla Thunara
 Name:		Thunar-volman
-Version:	0.8.0
+Version:	0.8.1
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://archive.xfce.org/src/apps/thunar-volman/0.8/%{_realname}-%{version}.tar.bz2
-# Source0-md5:	250af757ea629c7c27f554d17119080c
+# Source0-md5:	65ab6e05b2e808d1dcc8d36683a59b7e
 Patch0:		%{name}-desktop.patch
 URL:		http://goodies.xfce.org/projects/thunar-plugins/thunar-volman
 BuildRequires:	Thunar-devel >= 1.4.0
 BuildRequires:	dbus-glib-devel >= 0.34
 BuildRequires:	exo-devel >= 0.8.0
 BuildRequires:	gettext-tools
-BuildRequires:	glib2-devel >= 1:2.18.0
-BuildRequires:	gtk+2-devel >= 2:2.22.0
+BuildRequires:	glib2-devel >= 1:2.30.0
+BuildRequires:	gtk+2-devel >= 2:2.24.0
 BuildRequires:	libnotify-devel >= 0.4.0
-BuildRequires:	libxfce4ui-devel >= 4.10.0
-BuildRequires:	libxfce4util-devel >= 4.10.0
+BuildRequires:	libxfce4ui-devel >= 4.12.0
+BuildRequires:	libxfce4util-devel >= 4.12.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	udev-glib-devel >= 145
-BuildRequires:	xfce4-dev-tools >= 4.10.0
-BuildRequires:	xfconf-devel >= 4.10.0
+BuildRequires:	xfce4-dev-tools >= 4.12.0
+BuildRequires:	xfconf-devel >= 4.12.0
 Requires:	gtk-update-icon-cache
 Requires:	gvfs
 Requires:	hicolor-icon-theme
-Requires:	Thunar >= 1.2.0
+Requires:	Thunar >= 1.6.6
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
