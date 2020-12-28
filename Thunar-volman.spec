@@ -2,18 +2,18 @@
 Summary:	Volumes manager for Thunar
 Summary(pl.UTF-8):	Zarządca napędów dla Thunara
 Name:		Thunar-volman
-Version:	0.9.5
+Version:	4.16.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://archive.xfce.org/src/apps/thunar-volman/0.9/%{_realname}-%{version}.tar.bz2
-# Source0-md5:	f9ef39ed4bbff05eb74058dfff24dd84
+Source0:	https://archive.xfce.org/src/xfce/%{_realname}/4.16/%{_realname}-%{version}.tar.bz2
+# Source0-md5:	50ccc0e9a4eb7b5a6e9e498823c577f9
 Patch0:		%{name}-desktop.patch
 URL:		http://goodies.xfce.org/projects/thunar-plugins/thunar-volman
 BuildRequires:	dbus-glib-devel >= 0.34
-BuildRequires:	exo-devel >= 0.8.0
+BuildRequires:	exo-devel >= 0.10.0
 BuildRequires:	gettext-tools
-BuildRequires:	glib2-devel >= 1:2.30.0
+BuildRequires:	glib2-devel >= 1:2.50.0
 BuildRequires:	gtk+3-devel
 BuildRequires:	libnotify-devel >= 0.4.0
 BuildRequires:	libxfce4ui-devel >= 4.12.0
@@ -59,9 +59,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-# duplicate of ur
-%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/ur_PK
-%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/ie
+# unsupported
+%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/{hye,ie,ur_PK}
 # unify
 %{__mv} $RPM_BUILD_ROOT%{_datadir}/locale/{hy_AM,hy}
 
@@ -78,7 +77,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{_realname}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README THANKS
+%doc AUTHORS ChangeLog NEWS THANKS
 %attr(755,root,root) %{_bindir}/thunar-volman
 %attr(755,root,root) %{_bindir}/thunar-volman-settings
 %{_desktopdir}/thunar-volman-settings.desktop
